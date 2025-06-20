@@ -1,0 +1,39 @@
+@using Sandbox
+@using Sandbox.UI
+@inherits PanelComponent
+@attribute [StyleSheet()]
+
+<root class="@(InLobbyMenu ? "" : "hide")">
+    <h2>PAUSED</h2>
+    <div class="options">
+        <div class="button">
+            Host Lobby
+        </div>
+        <div class="button">
+            Quit
+        </div>
+    </div>
+</root>
+
+
+@code
+{
+    [Property] public bool InLobbyMenu { get; set; }
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if(Input.EscapePressed)
+        {
+            InLobbyMenu = !InLobbyMenu;
+        }
+
+        Scene.TimeScale = InLobbyMenu ? 0 : 1;
+    }
+
+    protected override int BuildHash()
+    {
+        return System.HashCode.Combine(InLobbyMenu);
+    }
+}

@@ -1,0 +1,13 @@
+@using Sandbox.UI
+@inherits Panel
+@attribute [StyleSheet()]
+
+<root class="HUDTitle">
+    <div class="title">@TitleText</div>
+</root>
+
+@code {
+    [Property]
+    [TextArea]
+    public string TitleText { get; set; } = "Hello from HudTitle!";
+}
