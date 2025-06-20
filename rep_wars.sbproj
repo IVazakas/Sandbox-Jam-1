@@ -1,8 +1,8 @@
 {
   "Title": "Rep Wars",
   "Type": "game",
-  "Org": "local",
-  "Ident": "rep_wars",
+  "Org": "auralis",
+  "Ident": "repwars",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,
@@ -23,6 +23,8 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/minimal.scene"
+    "StartupScene": "scenes/minimal.scene",
+    "MapStartupScene": "scenes/minimal.scene",
+    "LaunchMode": "Normal"
   }
 }

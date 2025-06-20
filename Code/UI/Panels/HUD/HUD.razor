@@ -6,7 +6,7 @@
 <root class="@(InLobbyMenu ? "" : "hide")">
     <h2>PAUSED</h2>
     <div class="options">
-        <div class="button">
+        <div class="button" onclick=@OnHostLobby>
             Host Lobby
         </div>
         <div class="button">
@@ -30,6 +30,11 @@
         }
 
         Scene.TimeScale = InLobbyMenu ? 0 : 1;
+    }
+
+    private void OnHostLobby()
+    {
+        Log.Info("Connecting to server...");
     }
 
     protected override int BuildHash()

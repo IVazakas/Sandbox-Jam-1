@@ -13,7 +13,6 @@ public sealed class LobbyManager : Component
 
 	protected override void OnAwake()
 	{
-		Root = GameObject.GetComponent<ScreenPanel>();
 	}
 
 
