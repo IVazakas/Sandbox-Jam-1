@@ -1,0 +1,22 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "Scn Testarena",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "scntestarena",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "Mounts": null,
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/scn_testarena.scene",
+        "ParentPackage": "auralis.repwars"
+      }
+    }
+  }
+}
