@@ -1,0 +1,54 @@
+@using Sandbox
+@using Sandbox.UI
+@inherits PanelComponent
+@attribute [StyleSheet()]
+
+<root class="LobbyMenuUI">
+    <h2>Rep Wars</h2>
+
+    <div class="quit-button" onclick=@OnQuit>
+        Quit
+    </div>
+
+    <div class="host-button" onclick=@OnHostLobby>
+        Host Lobby
+    </div>
+
+    <div class="join-button" onclick=@OnJoinLobby>
+        Join Lobby
+    </div>
+</root>
+
+
+@code
+{
+    [Property] public LobbyMenu LobbyMenu { get; set; }
+
+    private void OnHostLobby()
+    {
+        Log.Info("Hosting lobby...");
+        if (LobbyMenu is null)
+        {
+            Log.Warning("LobbyMenu reference is missing.");
+            return;
+        }
+
+        LobbyMenu.HostLobby();
+    }
+
+    private void OnJoinLobby()
+    {
+        Log.Info("Joining lobby...");
+
+    }
+
+    private void OnQuit()
+    {
+        Log.Info("Quitting...");
+    }
+
+    protected override int BuildHash()
+    {
+        return System.HashCode.Combine(LobbyMenu);
+    }
+}

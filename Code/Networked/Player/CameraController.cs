@@ -17,7 +17,9 @@ public sealed class CameraController : Component
 	private float _yawOffset = 0f;
 	private float _pitch = 0f;
 
-
+	/// <summary>
+	/// Fetch components and get pitch
+	/// </summary>
 	protected override void OnAwake()
 	{
 		_camera = Components.Get<CameraComponent>();
@@ -26,6 +28,9 @@ public sealed class CameraController : Component
 		_pitch = headAngles.pitch;
 	}
 
+	/// <summary>
+	/// Rotate camera based on Mouse delta X and Y, clamping both pitch and yaw based on exposed Limit params.
+	/// </summary>
 	protected override void OnUpdate()
 	{
 		_pitch += Input.MouseDelta.y * 0.1f;
@@ -35,8 +40,6 @@ public sealed class CameraController : Component
 		_yawOffset = _yawOffset.Clamp(HorizontalLimits.x, HorizontalLimits.y);
 
 		float bodyYaw = Body.WorldRotation.Angles().yaw;
-
-
 
 		var headAngles = new Angles
 		{
@@ -51,21 +54,14 @@ public sealed class CameraController : Component
 			return;
 
 		var headPos = Head.WorldPosition;
-		var cameraDir = headAngles.ToRotation().Backward; // Looking back from the head
+		var cameraDir = headAngles.ToRotation().Backward;
 		var desiredCamPos = headPos + cameraDir * Distance;
 
-		// Optional: prevent clipping through walls
 		var trace = Scene.Trace.Ray(headPos, desiredCamPos)
 			.WithoutTags("player", "trigger")
 			.Run();
 
 		_camera.WorldPosition = trace.Hit ? trace.HitPosition + trace.Normal * 0.05f : desiredCamPos;
 		_camera.WorldRotation = headAngles.ToRotation();
-	}
-
-	private static float AngleDelta(float a, float b)
-	{
-		float delta = (a - b + 180f) % 360f - 180f;
-		return delta < -180f ? delta + 360f : delta;
 	}
 }

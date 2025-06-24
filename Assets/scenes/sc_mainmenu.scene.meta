@@ -1,0 +1,22 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "Sc Mainmenu",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "scmainmenu",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "Mounts": null,
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/sc_mainmenu.scene",
+        "ParentPackage": "auralis.repwars"
+      }
+    }
+  }
+}

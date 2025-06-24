@@ -1,0 +1,22 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "Scn Mainmenu",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "scnmainmenu",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "Mounts": null,
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "scenes/scn_mainmenu.scene",
+        "ParentPackage": "auralis.repwars"
+      }
+    }
+  }
+}
